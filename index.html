@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Site Under Construction | Coming Soon</title>
+  <meta name="description" content="This page is currently under construction. We are working hard to launch a brand new experience. Stay tuned!">
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #f8fafc 0%, #eef2f5 100%);
+      font-family: system-ui, 'Segoe UI', 'Inter', 'Helvetica Neue', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      position: relative;
+      color: #0f172a;
+    }
+
+    /* subtle animated background pattern */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+      background-size: 32px 32px;
+      opacity: 0.4;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(2px);
+      border-radius: 3rem;
+      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.2), 0 8px 18px rgba(0, 0, 0, 0.05);
+      padding: 3rem 2rem;
+      max-width: 720px;
+      width: 100%;
+      text-align: center;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      z-index: 2;
+      position: relative;
+    }
+
+    @media (min-width: 640px) {
+      .card {
+        padding: 3.5rem;
+      }
+    }
+
+    /* animated construction icon / gear */
+    .icon-wrapper {
+      margin-bottom: 1.8rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gear-icon {
+      font-size: 4.2rem;
+      display: inline-block;
+      animation: spin 12s infinite linear;
+      filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.1));
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    h1 {
+      font-size: 2.3rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #1e293b, #2d3a4e);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #e2e8f0;
+      backdrop-filter: blur(4px);
+      padding: 0.3rem 1rem;
+      border-radius: 60px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      color: #1e293b;
+      margin-bottom: 1.5rem;
+      border: 1px solid #cbd5e180;
+    }
+
+    .message {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      color: #334155;
+      max-width: 500px;
+      margin: 0 auto 1.6rem auto;
+      font-weight: 450;
+    }
+
+    .construction-divider {
+      width: 80px;
+      height: 4px;
+      background: #f59e0b;
+      margin: 1.4rem auto 1.8rem auto;
+      border-radius: 4px;
+      opacity: 0.8;
+    }
+
+    .progress-container {
+      background: #e2e8f0;
+      border-radius: 80px;
+      height: 10px;
+      width: 100%;
+      max-width: 380px;
+      margin: 1.8rem auto 1.5rem auto;
+      overflow: hidden;
+      box-shadow: inset 0 1px 3px #0000001a;
+    }
+
+    .progress-fill {
+      width: 68%;
+      height: 100%;
+      background: linear-gradient(90deg, #f59e0b, #f97316);
+      border-radius: 80px;
+      animation: gentlePulse 2s infinite ease;
+      position: relative;
+    }
+
+    @keyframes gentlePulse {
+      0% { opacity: 0.7; width: 68%; }
+      50% { opacity: 1; width: 71%; }
+      100% { opacity: 0.7; width: 68%; }
+    }
+
+    .info-note {
+      font-size: 0.95rem;
+      color: #475569;
+      margin: 1rem 0 0.5rem;
+      background: #f1f5f9cc;
+      display: inline-block;
+      padding: 0.4rem 1.2rem;
+      border-radius: 60px;
+      backdrop-filter: blur(2px);
+    }
+
+    .footer-note {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: #5b6e8c;
+      border-top: 1px solid #e2edf2;
+      padding-top: 1.8rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-note span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    [data-tooltip] {
+      position: relative;
+      cursor: help;
+    }
+    [data-tooltip]:before {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 130%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #0f172ad9;
+      color: #f1f5f9;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: 0.1s;
+      font-weight: normal;
+      backdrop-filter: blur(4px);
+    }
+    [data-tooltip]:hover:before {
+      opacity: 1;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 2rem 1.2rem;
+        border-radius: 2rem;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+      .message {
+        font-size: 1rem;
+      }
+      .gear-icon {
+        font-size: 3.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <div class="icon-wrapper">
+    <div class="gear-icon" aria-label="Construction gear icon">⚙️🔨</div>
+  </div>
+
+  <div class="badge">🚧 status: building</div>
+  
+  <h1>Under Construction</h1>
+  
+  <div class="construction-divider"></div>
+  
+  <p class="message">
+    We’re crafting something fresh, modern, and powerful behind the scenes.<br>
+    This page is currently <strong>under construction</strong> — but a brand new digital experience is coming soon.
+  </p>
+  
+  <!-- Visual progress indicator (just for style, no hard dates) -->
+  <div class="progress-container" aria-label="Development progress indicator">
+    <div class="progress-fill" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+  
+  <div class="info-note">
+    ✨ We appreciate your patience — great things take time ✨
+  </div>
+
+  <div class="footer-note">
+    <span data-tooltip="We're pouring love into every pixel">🎨 design phase → polishing</span>
+    <span data-tooltip="Interactive features, CMS & optimization">💻 development → in progress</span>
+    <span data-tooltip="Newsletter & early access info coming">📬 stay tuned for updates</span>
+  </div>
+  <p style="font-size: 0.75rem; margin-top: 1rem; color: #6c86a3;">
+    🚀 <em>We’ll be live before you know it. Thank you for stopping by!</em>
+  </p>
+</div>
+
+</body>
+</html>
